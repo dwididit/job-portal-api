@@ -1,0 +1,41 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: job_portal
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - spring_net
+    restart: always
+
+  spring-boot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-boot-container
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/job_portal
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - spring_net
+    restart: unless-stopped
+    depends_on:
+      - postgres
+
+networks:
+  spring_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
