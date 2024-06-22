@@ -96,45 +96,9 @@ These instructions will get you a copy of the project up and running on your loc
 ```bash
 git@gitlab.com:dwididit/job-portal-api.git
 cd job-portal-api/
-```
-2. Create `application-dev.properties` file
-  ```bash
-  # Database configuration
-  spring.datasource.url=jdbc:postgresql://localhost:5432/database_name
-  spring.datasource.username=postgres
-  spring.datasource.password=postgres
-  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-  spring.jpa.hibernate.ddl-auto=update
-  spring.jpa.show-sql=true
-  
-  # Server port
-  server.port=8080
-  
-  # Logging configuration
-  logging.level.root=INFO
-  logging.level.dev.dwidi=DEBUG
-  logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
-  logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
-  logging.file.name=logs/application.log
-  
-  # CORS Configuration
-  url.frontend=http://localhost:8081
-  
-  # Whitelist URLs
-  security.whitelist.urls=/api/auth/**,/api/public/**,/api/another/**,/swagger-ui/**,/v3/api-docs/**,/v3/api-docs
-  
-  #JWT configuration
-  jwt.token.secret=a6a7330d4fe61af021b4f2cc5c50416c33705a94180bfc10ff773061105dd484
-  jwt.token.issuer=Dwi Didit Prasetiyo
-  
-  #1 day
-  jwt.token.accessValid=86400
-  
-  #1 month
-  jwt.token.refreshValid=2592000
-  ```
-  
-4. Build .jar using Maven
+``` 
+
+2. Build .jar using Maven
 ```bash
 mvn clean package
 ```
