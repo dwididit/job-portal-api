@@ -3,6 +3,8 @@ HELP.md
 logs/
 target/
 src/main/resources/application-dev.properties
+src/main/resources/application-stagging.properties
+src/main/resources/application-prod.properties
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
