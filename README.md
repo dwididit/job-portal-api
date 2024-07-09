@@ -1,4 +1,4 @@
-# MX100 Job Portal Application
+# Job Portal Application
 
 This project is a RESTful API for a Job Portal application developed using Spring Boot and PostgreSQL. The application allows employers to post jobs, freelancers to apply for jobs, and provides various functionalities such as user authentication, job management, and proposal management.
 
